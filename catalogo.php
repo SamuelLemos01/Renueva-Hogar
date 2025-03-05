@@ -42,18 +42,39 @@
 				<div class="contenedor-filtros">
 					<button class="btn-filtro activo" data-categoria="todos">Todos</button>
 					<button class="btn-filtro" data-categoria="sillas">Sillas</button>
-					<button class="btn-filtro" data-categoria="mesas">Mesas</button>
+					<button class="btn-filtro" data-categoria="cajones">Cajones</button>
 					<button class="btn-filtro" data-categoria="camas">Camas</button>
 					<button class="btn-filtro" data-categoria="closets">Closets</button>
 					<button class="btn-filtro" data-categoria="comedores">Comedores</button>
-					<button class="btn-filtro" data-categoria="lamparas">Lámparas</button>
+					<button class="btn-filtro" data-categoria="salas">Salas</button>
+					<button class="btn-filtro" data-categoria="tocador">Tocador</button>
 				</div>
 				
 				<div class="contenedor-productos">
 					<!-- Producto Silla -->
 					<div class="producto" data-categoria="sillas">
 						<div class="imagen-producto">
-							<img src="fotos_productos/encimera/encimera.jpeg" alt="Silla moderna">
+							<img src="assets/images/mesas/mesa.jpeg" alt="Silla moderna">
+						</div>
+						<div class="detalles-producto">
+							<div class="categoria-producto">Sillas</div>
+							<h3 class="nombre-producto">Silla Eames Moderna</h3>
+							<div class="precio-producto">$289.000</div>
+							<div class="medidas-producto">
+								<span class="medida">Alto: 82cm</span>
+								<span class="medida">Ancho: 46cm</span>
+								<span class="medida">Profundidad: 50cm</span>
+							</div>
+							<div class="botones-producto">
+								<button class="btn-producto btn-detalles">Ver detalles</button>
+								<button class="btn-producto btn-carrito">Añadir <i class="fa-solid fa-cart-plus"></i></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="producto" data-categoria="sillas">
+						<div class="imagen-producto">
+							<img src="assets/images/mesas/mesa.jpeg" alt="Silla moderna">
 						</div>
 						<div class="detalles-producto">
 							<div class="categoria-producto">Sillas</div>
@@ -72,7 +93,26 @@
 					</div>
 					
 					<!-- Producto Mesa -->
-					<div class="producto" data-categoria="mesas">
+					<div class="producto" data-categoria="cajones">
+						<div class="imagen-producto">
+							<img src="assets/images/mesa1.jpg" alt="Mesa de centro moderna">
+						</div>
+						<div class="detalles-producto">
+							<div class="categoria-producto">Mesas</div>
+							<h3 class="nombre-producto">Mesa de Centro Escandinava</h3>
+							<div class="precio-producto">$420.000</div>
+							<div class="medidas-producto">
+								<span class="medida">60x60cm</span>
+								<span class="medida">80x80cm</span>
+								<span class="medida">100x100cm</span>
+							</div>
+							<div class="botones-producto">
+								<button class="btn-producto btn-detalles">Ver detalles</button>
+								<button class="btn-producto btn-carrito">Añadir <i class="fa-solid fa-cart-plus"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="producto" data-categoria="cajones">
 						<div class="imagen-producto">
 							<img src="assets/images/mesa1.jpg" alt="Mesa de centro moderna">
 						</div>
@@ -157,7 +197,7 @@
 					</div>
 					
 					<!-- Producto Lámpara -->
-					<div class="producto" data-categoria="lamparas">
+					<div class="producto" data-categoria="salas">
 						<div class="imagen-producto">
 							<img src="assets/images/lampara1.jpg" alt="Lámpara de pie">
 						</div>
@@ -175,6 +215,27 @@
 							</div>
 						</div>
 					</div>
+				<!-- Producto tocador -->
+					<div class="producto" data-categoria="tocador">
+						<div class="imagen-producto">
+							<img src="assets/images/mesas/mesa.jpeg" alt="Silla moderna">
+						</div>
+						<div class="detalles-producto">
+							<div class="categoria-producto">tocador</div>
+							<h3 class="nombre-producto">Silla Eames Moderna</h3>
+							<div class="precio-producto">$289.000</div>
+							<div class="medidas-producto">
+								<span class="medida">Alto: 82cm</span>
+								<span class="medida">Ancho: 46cm</span>
+								<span class="medida">Profundidad: 50cm</span>
+							</div>
+							<div class="botones-producto">
+								<button class="btn-producto btn-detalles">Ver detalles</button>
+								<button class="btn-producto btn-carrito">Añadir <i class="fa-solid fa-cart-plus"></i></button>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 			</section>
 		</main>
