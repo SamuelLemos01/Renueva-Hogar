@@ -10,9 +10,14 @@
 	<title>Renueva Hogar</title>
 	<link rel="stylesheet" href="assets/css/styles.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" href="assets\css\cuadros.css">
 </head>
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<section class="">
+<img src="Banner Horizontal RENUEVA HOGAR (2).jpg" alt="Banner Promocional" style="width: 100%; max-height: 180px; object-fit: cover; display: block;">
+    </section>
 <body>
+	
 	<header>
 		<div class="contenedor-barra-navegacion">
 			<nav class="barra-navegacion contenedor">
@@ -22,7 +27,8 @@
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
 					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="#">Contáctenos</a></li>
+					<li><a href="Quienes_somos.php">Quienes somos</a></li>
+					<li><a href="contactenos.php">Contáctenos</a></li>
 				</ul>
 
 				<form class="formulario-busqueda">
@@ -33,17 +39,22 @@
 				</form>
 				<a href="login.php"><i class="fa-solid fa-user"></i></a>
 				<i class="fa-solid fa-basket-shopping"></i>
+				<a href="http://localhost/Renueva-Hogar-practica/administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
+				
+				
 			</nav>
 		</div>
 	</header>
 
 	<section class="banner">
 		<div class="contenido-banner">
+		<section class="">
 			<p>Muebles de calidad</p>
 			<h2>Fabricamos desde 0 <br /> con amor</h2>
-			<a href="#valores">Mirar más</a>
 		</div>
 	</section>
+
+	
 
 	<main class="contenido-principal">
 		<section class="contenedor contenedor-caracteristicas">
@@ -77,81 +88,437 @@
 			</div>
 		</section>
 
-		<section class="contenedor categorias-principales" id="valores">
-			<h1 class="encabezado-1">Nuestros Valores</h1>
-
-			<div class="contenedor-valores">
-				<div class="tarjeta-valor mision">
-					<div class="icono-valor">
-						<i class="fa-solid fa-bullseye"></i>
+		<section class="container top-categories">
+				<h1 class="heading-1">Mejores Categorías</h1>
+				<div class="container-categories">
+					<div class="card-category category-moca">
+						<p>Camas</p>
+						
+						<span><a href="catalogo.php"> Ver mas</a></span>
 					</div>
-					<div class="contenido-valor">
-						<h2 class="titulo-valor">Misión</h2>
-						<p>En Renueva Hogar, nuestra misión es transformar espacios en hogares con muebles artesanales de la más alta calidad. Nos comprometemos a crear piezas duraderas que combinen funcionalidad, estética y sostenibilidad, garantizando que cada producto refleje el amor y dedicación que ponemos en su fabricación.</p>
+					<div class="card-category category-expreso">
+						
+						<p>Muebles</p>
+						<span>Ver más</span>
+						
 					</div>
-				</div>
-
-				<div class="tarjeta-valor vision">
-					<div class="icono-valor">
-						<i class="fa-solid fa-binoculars"></i>
-					</div>
-					<div class="contenido-valor">
-						<h2 class="titulo-valor">Visión</h2>
-						<p>Aspiramos a convertirnos en el referente regional en mueblería artesanal, destacándonos por la innovación en diseños, el compromiso con prácticas sostenibles y la excelencia en servicio al cliente. Buscamos expandir nuestra presencia manteniendo nuestros valores de calidad y personalización en cada pieza.</p>
+					<div class="card-category category-capuchino">
+						<p>Comedores</p>
+						<span>Ver más</span>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
 
-		<section class="contenedor productos-principales">
-			<h1 class="encabezado-1">Ubícanos</h1>
+			<section class="container top-products">
+				<h1 class="heading-1">Mejores Productos</h1>
 
-			<div class="contenedor-mapa">
-				<div class="informacion-contacto">
-					<h2 class="titulo-ubicacion">Visítanos en nuestra tienda</h2>
-					<p><i class="fa-solid fa-location-dot"></i> Calle 15 #8-45, Neiva, Huila</p>
-					<p><i class="fa-solid fa-phone"></i> (608) 865-4321</p>
-					<p><i class="fa-solid fa-clock"></i> Lunes a Sábado: 9:00 AM - 6:00 PM</p>
-					<p><i class="fa-solid fa-calendar"></i> Domingos: 10:00 AM - 2:00 PM</p>
+				<div class="container-options">
+					<span class="active">Destacados</span>
+					<span>Más recientes</span>
+					<span>Mejores Vendidos</span>
 				</div>
-				<div class="mapa">
-					<!-- Mapa de Google integrado con iframe -->
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.730497013387!2d-75.77745612524934!3d2.2543186580017855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e252963051d774d%3A0xca67347fff16ad22!2sMuebler%C3%ADa%20Renueva%20Hogar!5e0!3m2!1ses!2sco!4v1740002837185!5m2!1ses!2sco" width="100%" height="400" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="assets\images\cama\cama1.jpeg" alt="Cama King" />
+							<span class="discount">-13%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Irish</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$4.60 <span>$5.30</span></p>
+						</div>
+					</div>
+					<!-- Producto 2 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="assets\images\cajon\cajon6.jpeg"
+								alt="Cafe incafe-ingles.jpg"
+							/>
+							<span class="discount">-22%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Inglés</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$5.70 <span>$7.30</span></p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="assets\images\comedor\comedor8.jpeg"
+								alt="Cafe Australiano"
+							/>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Cafe Australiano</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$3.20</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="assets\images\silla\silla.jpeg" alt="Cafe Helado" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Helado</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$5.60</p>
+						</div>
+					</div>
 				</div>
-			</div>
-		</section>
-		<section class="galeria">
+			</section>
+
+		
+			<section class="galeria">
 			<a href="catalogo.php?categoria=sillas#catalogo" class="galeria-contenedor galeria-img-1">
-				<img src="assets/images/gallery1.jpg" alt="Galería Img1" />
+				<img src="assets\images\silla\silla.jpeg">
 				<div class="overlay-galeria">
 					<span class="overlay-texto">Ver Sillas</span>
 				</div>
 			</a>
 			<a href="catalogo.php?categoria=mesas#catalogo" class="galeria-contenedor galeria-img-2">
-				<img src="assets/images/gallery2.jpg" alt="Galería Img2" />
-				<div class="overlay-galeria">
-					<span class="overlay-texto">Ver Mesas</span>
-				</div>
-			</a>
-			<a href="catalogo.php?categoria=camas#catalogo" class="galeria-contenedor galeria-img-3">
-				<img src="assets/images/gallery3.jpg" alt="Galería Img3" />
-				<div class="overlay-galeria">
-					<span class="overlay-texto">Ver Camas</span>
-				</div>
-			</a>
-			<a href="catalogo.php?categoria=comedores#catalogo" class="galeria-contenedor galeria-img-4">
-				<img src="assets/images/gallery4.jpg" alt="Galería Img4" />
+				<img src="assets\images\comedor\comedor.jpeg" >
 				<div class="overlay-galeria">
 					<span class="overlay-texto">Ver Comedores</span>
 				</div>
 			</a>
+			<a href="catalogo.php?categoria=mesas#catalogo" class="galeria-contenedor galeria-img-2">
+				<img src="assets\images\sala\sala.jpeg" >
+				<div class="overlay-galeria">
+					<span class="overlay-texto">Ver Salas</span>
+				</div>
+			</a>
+			<a href="catalogo.php?categoria=comedores#catalogo" class="galeria-contenedor galeria-img-4">
+				<img src="assets\images\cajon\cajon3.jpeg">
+				<div class="overlay-galeria">
+					<span class="overlay-texto">Ver Cajones</span>
+				</div>
+			</a>
+			<a href="catalogo.php?categoria=comedores#catalogo" class="galeria-contenedor galeria-img-4">
+				<img src="assets\images\tocador\tocador.jpeg">
+				<div class="overlay-galeria">
+					<span class="overlay-texto">Ver Tocadores</span>
+				</div>
+			</a>
 			<a href="catalogo.php?categoria=closets#catalogo" class="galeria-contenedor galeria-img-5">
-				<img src="assets/images/gallery5.jpg" alt="Galería Img5" />
+				<img src="assets\images\closet\closet4.jpeg">
 				<div class="overlay-galeria">
 					<span class="overlay-texto">Ver Closets</span>
 				</div>
 			</a>
+		
+		
+		
+			
+			
+			
 		</section>
+
+		<section class="container specials">
+				<h1 class="heading-1">Especiales</h1>
+
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="assets\images\cajon\cajon9.jpeg" alt="Cafe Irish" />
+							<span class="discount">-13%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Irish</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$4.60 <span>$5.30</span></p>
+						</div>
+					</div>
+					<!-- Producto 2 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="assets\images\tocador\tocador6.jpeg"
+								alt="Cafe incafe-ingles.jpg"
+							/>
+							<span class="discount">-22%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Inglés</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$5.70 <span>$7.30</span></p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="assets\images\sala\sala13.jpeg" alt="Cafe Viena" />
+							<span class="discount">-30%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Cafe Viena</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$3.85 <span>$5.50</span></p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="assets\images\silla\silla3.jpeg" alt="Cafe Liqueurs" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Liqueurs</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$5.60</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="container blogs">
+				<h1 class="heading-1">Últimos Blogs</h1>
+
+				<div class="container-blogs">
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="img/blog-1.jpg" alt="Imagen Blog 1" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Lorem, ipsum dolor sit</h3>
+							<span>29 Noviembre 2022</span>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Iste, molestiae! Ratione et, dolore ipsum
+								quaerat iure illum reprehenderit non maxime amet dolor
+								voluptas facilis corporis, consequatur eius est sunt
+								suscipit?
+							</p>
+							<div class="btn-read-more">Leer más</div>
+						</div>
+					</div>
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="img/blog-2.jpg" alt="Imagen Blog 2" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Lorem, ipsum dolor sit</h3>
+							<span>29 Noviembre 2022</span>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Iste, molestiae! Ratione et, dolore ipsum
+								quaerat iure illum reprehenderit non maxime amet dolor
+								voluptas facilis corporis, consequatur eius est sunt
+								suscipit?
+							</p>
+							<div class="btn-read-more">Leer más</div>
+						</div>
+					</div>
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="img/blog-3.jpg" alt="Imagen Blog 3" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Lorem, ipsum dolor sit</h3>
+							<span>29 Noviembre 2022</span>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Iste, molestiae! Ratione et, dolore ipsum
+								quaerat iure illum reprehenderit non maxime amet dolor
+								voluptas facilis corporis, consequatur eius est sunt
+								suscipit?
+							</p>
+							<div class="btn-read-more">Leer más</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
 	</main>
 
@@ -184,10 +551,10 @@
 				<div class="informacion">
 					<p class="titulo-pie-pagina">Enlaces Rápidos</p>
 					<ul>
-						<li><a href="#">Inicio</a></li>
-						<li><a href="#">Productos</a></li>
-						<li><a href="#">Acerca de Nosotros</a></li>
-						<li><a href="#">Contáctanos</a></li>
+					<li><a href="index.php">Inicio</a></li>
+					<li><a href="catalogo.php">Productos</a></li>
+					<li><a href="Quienes_somos.php">Quienes somos</a></li>
+					<li><a href="contactenos.php">Contáctenos</a></li>
 					</ul>
 				</div>
 			</div>

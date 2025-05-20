@@ -17,10 +17,11 @@
                     <h1 class="logo"><a href="index.php">Renueva Hogar</a></h1>
                 </div>
                 <ul class="menu">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contáctenos</a></li>
-                </ul>
+					<li><a href="index.php">Inicio</a></li>
+					<li><a href="catalogo.php">Productos</a></li>
+					<li><a href="Quienes_somos.php">Quienes somos</a></li>
+					<li><a href="contactenos.php">Contáctenos</a></li>
+				</ul>
 
                 <form class="formulario-busqueda">
                     <input type="search" placeholder="Buscar..." />
@@ -30,6 +31,7 @@
                 </form>
                 <a href="login.php"><i class="fa-solid fa-user"></i></a>				
                 <i class="fa-solid fa-basket-shopping"></i>
+                <a href="http://localhost/Renueva-Hogar-practica/administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
             </nav>
         </div>
     </header>
@@ -60,6 +62,7 @@
                 </div>
                 <div class="input-box">
                     <button type="submit" class="btn-submit" id="SignInBtn">Iniciar Sesión <i class='bx bx-log-in'></i></button>
+                    
                 </div>
                 <div class="switch-form">
                     <span>¿No tienes una cuenta? <a href="register.php">Regístrate</a></span>
@@ -98,10 +101,10 @@
                 <div class="informacion">
                     <p class="titulo-pie-pagina">Enlaces Rápidos</p>
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Acerca de Nosotros</a></li>
-                        <li><a href="#">Contáctanos</a></li>
+                    <li><a href="index.php">Inicio</a></li>
+					<li><a href="catalogo.php">Productos</a></li>
+					<li><a href="Quienes_somos.php">Quienes somos</a></li>
+					<li><a href="contactenos.php">Contáctenos</a></li>
                     </ul>
                 </div>
             </div>
