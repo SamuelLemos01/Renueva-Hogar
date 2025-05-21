@@ -12,9 +12,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="stylesheet" href="assets\css\cuadros.css">
 </head>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <section class="">
-<img src="Banner Horizontal RENUEVA HOGAR (2).jpg" alt="Banner Promocional" style="width: 100%; max-height: 180px; object-fit: cover; display: block;">
+<img src="banner nuevo.png" alt="Banner Promocional" style="width: 1000%; max-height: 180px; object-fit: cover; display: block;">
     </section>
 <body>
 	
