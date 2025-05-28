@@ -8,14 +8,11 @@
 		name="viewport"
 		content="width=device-width, initial-scale=1.0" />
 	<title>Renueva Hogar</title>
-	<link rel="stylesheet" href="assets/css/styles.css" />
+	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" href="assets\css\cuadros.css">
+	<link rel="stylesheet" href="assets/css/cuadros.css">
 </head>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<section class="">
-<img src="banner nuevo.png" alt="Banner Promocional" style="width: 1000%; max-height: 180px; object-fit: cover; display: block;">
-    </section>
+
 <body>
 	
 	<header>
@@ -26,9 +23,9 @@
 				</div>
 				<ul class="menu">
 					<li><a href="index.php">Inicio</a></li>
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
+					<li><a href="pages/catalogo.php">Productos</a></li>
+					<li><a href="pages/Quienes_somos.php">Quienes somos</a></li>
+					<li><a href="pages/contactenos.php">Contáctenos</a></li>
 				</ul>
 
 				<form class="formulario-busqueda">
@@ -53,9 +50,7 @@
 			<h2>Fabricamos desde 0 <br /> con amor</h2>
 		</div>
 	</section>
-
 	
-
 	<main class="contenido-principal">
 		<section class="contenedor contenedor-caracteristicas">
 			<div class="tarjeta-caracteristica">
