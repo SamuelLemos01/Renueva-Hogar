@@ -17,7 +17,6 @@
 					<h1 class="logo"><a href="index.php">Renueva Hogar</a></h1>
 				</div>
 				<ul class="menu">
-					<li><a href="index.php">Inicio</a></li>
 					<li><a href="catalogo.php">Productos</a></li>
 					<li><a href="Quienes_somos.php">Quienes somos</a></li>
 					<li><a href="contactenos.php">Contáctenos</a></li>

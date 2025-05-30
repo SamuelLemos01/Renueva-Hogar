@@ -65,3 +65,26 @@ function insertarCarrito(elemento) {
     }
     return false;
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const productSections = document.querySelectorAll('.products-section');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const targetCategory = this.getAttribute('data-category');
+        const targetSection = document.getElementById(targetCategory);
+
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        
+        this.classList.add('active');
+
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
