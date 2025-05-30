@@ -28,15 +28,9 @@
 					<li><a href="pages/contactenos.php">Contáctenos</a></li>
 				</ul>
 
-				<form class="formulario-busqueda">
-					<input type="search" placeholder="Buscar..." />
-					<button class="btn-busqueda">
-						<i class="fa-solid fa-magnifying-glass"></i>
-					</button>
-				</form>
-				<a href="login.php"><i class="fa-solid fa-user"></i></a>
+				<a href="pages/login.php"><i class="fa-solid fa-user"></i></a>
 				<i class="fa-solid fa-basket-shopping"></i>
-				<a href="http://localhost/Renueva-Hogar-practica/administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
+				<a href="administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
 				
 				
 			</nav>
@@ -46,8 +40,10 @@
 	<section class="banner">
 		<div class="contenido-banner">
 		<section class="">
-			<p>Muebles de calidad</p>
-			<h2>Fabricamos desde 0 <br /> con amor</h2>
+			<p>Muebles artesanales de calidad</p>
+			<h2>Transformamos tu hogar <br /> con diseños únicos</h2>
+			<a href="pages/catalogo.php">Descubre nuestros productos</a>
+		</section>
 		</div>
 	</section>
 	

@@ -83,33 +83,25 @@
     </style>
 </head>
 <body>
-    <br><br><br><br><br><br><br><br><br><br>
-    <!-- Header -->
     <header>
-        <div class="contenedor-barra-navegacion">
-            <nav class="barra-navegacion contenedor">
-                <div class="contenedor-logo">
-                    <h1 class="logo"><a href="../index.php">Renueva Hogar</a></h1>
-                </div>
-                <ul class="menu">
-                    					<li><a href="../index.php">Inicio</a></li>
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
-                </ul>
+		<div class="contenedor-barra-navegacion">
+			<nav class="barra-navegacion contenedor">
+				<div class="contenedor-logo">
+					<h1 class="logo"><a href="index.php">Renueva Hogar</a></h1>
+				</div>
+				<ul class="menu">
+					<li><a href="../pages/index.php">Inicio</a></li>
+					<li><a href="../pages/catalogo.php">Productos</a></li>
+					<li><a href="../pages/Quienes_somos.php">Quienes somos</a></li>
+					<li><a href="../pages/contactenos.php">Contáctenos</a></li>
+				</ul>
 
-                <form class="formulario-busqueda">
-                    <input type="search" placeholder="Buscar..." />
-                    <button class="btn-busqueda">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
-                <a href="login.php"><i class="fa-solid fa-user"></i></a>
-                <i class="fa-solid fa-basket-shopping"></i>
-                <a href="administrador\administrador.php"><i class="fa-regular fa-user"></i></a>
-            </nav>
-        </div>
-    </header>
+				<a href="../pages/login.php"><i class="fa-solid fa-user"></i></a>
+				<i class="fa-solid fa-basket-shopping"></i>
+				<a href="administrador.php"><i class="fa-regular fa-user"></i></a>
+			</nav>
+		</div>
+	</header>
 
     <!-- Banner -->
     <section>

@@ -6,14 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Catálogo - Renueva Hogar</title>
 		<link rel="stylesheet" href="../assets/css/catalogo.css">
-<link rel="stylesheet" href="../assets/css/styles.css">
+		<link rel="stylesheet" href="../assets/css/styles.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	
 	</head>
-	<section class="">
-<img src="../assets/images/cajon/cajon.jpeg" alt="Banner Promocional" style="width: 100%; max-height: 180px; object-fit: cover; display: block;">
-    </section>
-<body>
+
 	<body>
 		<header>
 			<div class="contenedor-barra-navegacion">
@@ -28,19 +24,22 @@
 					<li><a href="contactenos.php">Contáctenos</a></li>
 				</ul>
 
-
-					<form class="formulario-busqueda">
-						<input type="search" placeholder="Buscar..." />
-						<button class="btn-busqueda">
-							<i class="fa-solid fa-magnifying-glass"></i>
-						</button>
-					</form>
 					<a href="login.php"><i class="fa-solid fa-user"></i></a>				
 					<i class="fa-solid fa-basket-shopping"></i>
 					<a href="../administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
 				</nav>
 			</div>
 		</header>
+
+		<section class="banner-interno">
+			<div class="contenido-banner-interno">
+			<section class="">
+				<p>Descubre nuestra colección</p>
+				<h2>Muebles únicos <br /> para cada espacio</h2>
+				<a href="#catalogo">Ver productos</a>
+			</section>
+			</div>
+		</section>
 
 		<main class="contenido-principal">
 			<section class="contenedor" id="catalogo">

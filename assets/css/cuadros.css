@@ -74,7 +74,6 @@ html {
 	text-decoration: none;
 	color: #000;
 	font-size: 3rem;
-	text-transform: uppercase;
 	letter-spacing: -1px;
 }
 
@@ -132,7 +131,6 @@ html {
 	font-size: 1.3rem;
 	color: var(--dark-color);
 	font-weight: 600;
-	text-transform: uppercase;
 	position: relative;
 }
 
@@ -202,7 +200,7 @@ html {
 /*               BANNER               */
 /* ********************************** */
 .banner {
-	background-image: url('../images/index/banner.jpg');
+	background-image: url('../images/index/herobanner.png'), linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
 	height: 60rem;
 	background-size: cover;
 	background-position: center;
@@ -235,7 +233,6 @@ html {
 	background-color: var(--primary-color);
 	display: inline-block;
 	padding: 1rem 3rem;
-	text-transform: uppercase;
 	border-radius: 3rem;
 }
 
@@ -684,7 +681,6 @@ html {
 	padding: 1rem 3rem;
 	background-color: var(--primary-color);
 	color: #fff;
-	text-transform: uppercase;
 	font-size: 1.4rem;
 	border-radius: 2rem;
 	margin: 3rem 0 5rem;
@@ -721,7 +717,6 @@ html {
 .title-footer {
 	font-weight: 600;
 	font-size: 1.6rem;
-	text-transform: uppercase;
 }
 
 .contact-info,
@@ -839,7 +834,6 @@ html {
 	border: none;
 	background-color: #000;
 	color: #fff;
-	text-transform: uppercase;
 	padding: 1rem 3rem;
 	border-radius: 2rem;
 	font-size: 1.4rem;

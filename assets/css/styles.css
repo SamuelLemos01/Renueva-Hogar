@@ -45,15 +45,18 @@ html {
 .barra-navegacion {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 2rem;
 	text-decoration: none;
+	gap: 3rem;
+	position: relative;
 }
 
 .contenedor-logo {
-	flex: 1;
+	position: absolute;
+	left: 2rem;
 }
 
 .logo a {
@@ -115,9 +118,18 @@ html {
 .fa-basket-shopping {
 	font-size: 2rem;
 	color: var(--color-oscuro);
-	margin-left: 20px;
 	cursor: pointer;
 	transition: color 0.3s ease;
+	position: absolute;
+	right: 2rem;
+}
+
+.fa-user {
+	right: 5rem;
+}
+
+.fa-basket-shopping {
+	right: 2rem;
 }
 
 .fa-user:hover,
@@ -133,9 +145,18 @@ html {
 }
 
 .banner {
-	background-image: linear-gradient(100deg, #000000, #00000020),
-		url('../images/index/banner.jpg');
+	background-image: url('../images/index/herobanner.png'), linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+	background-blend-mode: overlay;
 	height: 60rem;
+	background-size: cover;
+	background-position: center;
+}
+
+/* Banner más pequeño para páginas internas */
+.banner-interno {
+	background-image: url('../images/index/herobanner.png'), linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+	background-blend-mode: overlay;
+	height: 45rem;
 	background-size: cover;
 	background-position: center;
 }
@@ -144,31 +165,62 @@ html {
 	max-width: 90rem;
 	margin: 0 auto;
 	padding: 25rem 0;
+	text-align: center;
 }
 
-.contenido-banner p {
+/* Contenido banner para páginas internas */
+.contenido-banner-interno {
+	max-width: 90rem;
+	margin: 0 auto;
+	padding: 14rem 0;
+	text-align: center;
+}
+
+.contenido-banner p,
+.contenido-banner-interno p {
 	color: var(--color-primario);
-	font-size: 1.2rem;
+	font-size: 1.8rem;
 	margin-bottom: 1rem;
-	font-weight: 500;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 
-.contenido-banner h2 {
+.contenido-banner h2,
+.contenido-banner-interno h2 {
 	color: #fff;
-	font-size: 3.5rem;
-	font-weight: 500;
+	font-size: 4.5rem;
+	font-weight: 700;
 	line-height: 1.2;
+	margin-bottom: 2rem;
 }
 
-.contenido-banner a {
+/* Tamaño específico para páginas internas */
+.contenido-banner-interno h2 {
+	font-size: 3.8rem;
+}
+
+.contenido-banner a,
+.contenido-banner-interno a {
 	margin-top: 2rem;
 	text-decoration: none;
 	color: #fff;
 	background-color: var(--color-primario);
 	display: inline-block;
-	padding: 1rem 3rem;
-	text-transform: uppercase;
+	padding: 1.2rem 3.5rem;
 	border-radius: 3rem;
+	font-size: 1.6rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: all 0.3s ease;
+}
+
+.contenido-banner a:hover,
+.contenido-banner-interno a:hover {
+	background-color: #fff;
+	color: var(--color-primario);
+	transform: translateY(-2px);
 }
 
 .contenido-principal {
@@ -578,6 +630,30 @@ html {
 }
 
 @media (max-width: 767px) {
+	.barra-navegacion {
+		justify-content: space-between;
+		gap: 0;
+		padding: 0 2rem;
+	}
+
+	.contenedor-logo {
+		position: static;
+	}
+
+	.fa-user,
+	.fa-basket-shopping {
+		position: static;
+		margin-left: 10px;
+	}
+
+	.fa-user {
+		right: auto;
+	}
+
+	.fa-basket-shopping {
+		right: auto;
+	}
+
 	.barra-navegacion .fa-bars {
 		display: block;
 		font-size: 2.5rem;
@@ -603,8 +679,21 @@ html {
 		grid-template-columns: 1fr 1fr;
 	}
 
-	.formulario-busqueda input {
-		width: 15rem;
+	.contenido-banner h2,
+	.contenido-banner-interno h2 {
+		font-size: 3rem;
+	}
+
+	.contenido-banner-interno h2 {
+		font-size: 2.5rem;
+	}
+
+	.banner-interno {
+		height: 30rem;
+	}
+
+	.contenido-banner-interno {
+		padding: 12rem 2rem;
 	}
 }
 
@@ -627,7 +716,19 @@ html {
 		font-size: 2.8rem;
 	}
 
+	.contenido-banner-interno h2 {
+		font-size: 2.2rem;
+	}
+
 	.contenido-banner {
 		padding: 20rem 2rem;
+	}
+
+	.contenido-banner-interno {
+		padding: 10rem 2rem;
+	}
+
+	.banner-interno {
+		height: 25rem;
 	}
 }

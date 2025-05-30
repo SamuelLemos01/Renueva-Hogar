@@ -7,16 +7,11 @@
 	<meta
 		name="viewport"
 		content="width=device-width, initial-scale=1.0" />
-	<title>Renueva Hogar</title>
+	<title>Renueva Hogar - Quienes Somos</title>
 	<link rel="stylesheet" href="../assets/css/styles.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<section class="">
-<img src="../assets/images/cajon\cajon.jpeg" alt="Banner Promocional" style="width: 100%; max-height: 180px; object-fit: cover; display: block;">
-    </section>
-<section class="">
-<img src="../assets/images/cajon\cajon.jpeg" alt="Banner Promocional" style="width: 100%; max-height: 180px; object-fit: cover; display: block;">
-    </section>
+
 <body>
 	
 	<header>
@@ -32,22 +27,25 @@
 					<li><a href="contactenos.php">Contáctenos</a></li>
 				</ul>
 
-				<form class="formulario-busqueda">
-					<input type="search" placeholder="Buscar..." />
-					<button class="btn-busqueda">
-						<i class="fa-solid fa-magnifying-glass"></i>
-					</button>
-				</form>
 				<a href="login.php"><i class="fa-solid fa-user"></i></a>
 				<i class="fa-solid fa-basket-shopping"></i>
 				<a href="../administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
 			</nav>
 		</div>
 	</header>
-	
 
+	<section class="banner-interno">
+		<div class="contenido-banner-interno">
+		<section class="">
+			<p>Conoce nuestra historia</p>
+			<h2>Más de 10 años <br /> creando hogares únicos</h2>
+			<a href="catalogo.php">Ver nuestros productos</a>
+		</section>
+		</div>
+	</section>
 
-	<section class="contenedor categorias-principales" id="valores">
+	<main class="contenido-principal">
+		<section class="contenedor categorias-principales" id="valores">
 			<h1 class="encabezado-1">Nuestros Valores</h1>
 
 			<div class="contenedor-valores">
@@ -72,10 +70,9 @@
 				</div>
 			</div>
 		</section>
+	</main>
 
-		
-
-		<footer class="pie-pagina">
+	<footer class="pie-pagina">
 		<div class="contenedor contenedor-pie-pagina">
 			<div class="menu-pie-pagina">
 				<div class="informacion-contacto">
@@ -117,7 +114,6 @@
 			<p>
 				&copy; 2025 Renueva Hogar - Todos los derechos reservados
 			</p>
-		</div>
 		</div>
 	</footer>
 
