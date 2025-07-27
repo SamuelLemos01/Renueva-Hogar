@@ -152,7 +152,7 @@
     color: var(--color-oscuro);
 }
 
-.modal-content input {
+.modal-content input, .modal-content select {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1rem;
