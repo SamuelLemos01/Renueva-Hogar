@@ -27,10 +27,7 @@
 				</ul>
 
 				<a href="pages/login.php"><i class="fa-solid fa-user"></i></a>
-				<i class="fa-solid fa-basket-shopping"></i>
-				<a href="administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
-				
-				
+				<i class="fa-solid fa-basket-shopping"></i>				
 			</nav>
 		</div>
 	</header>
