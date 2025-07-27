@@ -122,7 +122,6 @@
     font-weight: 400;
 }
 
-/* Acciones */
 .admin-actions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -216,60 +215,6 @@
     color: var(--color-oscuro);
     font-weight: 600;
     margin-bottom: 2rem;
-}
-
-.recent-activity {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.activity-item {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    background-color: var(--color-fondo);
-    transition: all 0.3s ease;
-}
-
-.activity-item:hover {
-    background-color: #f0e8e0;
-    transform: translateX(5px);
-}
-
-.activity-icon {
-    width: 4rem;
-    height: 4rem;
-    background-color: var(--color-primario);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.activity-icon i {
-    font-size: 1.6rem;
-    color: #fff;
-}
-
-.activity-content {
-    flex-grow: 1;
-}
-
-.activity-text {
-    font-size: 1.5rem;
-    color: var(--color-oscuro);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-
-.activity-time {
-    font-size: 1.2rem;
-    color: #888;
-    font-weight: 400;
 }
 
 .admin-footer {

@@ -6,6 +6,18 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     header("Location: ../login/login_admin.php");
     exit();
 }
+
+// Conexión a base de datos de usuarios
+$conexion_usuarios = mysqli_connect('localhost', 'root', '', 'login_register_db');
+$query_usuarios = "SELECT COUNT(*) as total FROM usuarios";
+$resultado_usuarios = mysqli_query($conexion_usuarios, $query_usuarios);
+$total_usuarios = mysqli_fetch_assoc($resultado_usuarios)['total'];
+
+// Conexión a base de datos de productos
+$conexion_productos = mysqli_connect('localhost', 'root', '', 'productos');
+$query_productos = "SELECT COUNT(*) as total FROM productos";
+$resultado_productos = mysqli_query($conexion_productos, $query_productos);
+$total_productos = mysqli_fetch_assoc($resultado_productos)['total'];
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +57,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number">24</h3>
+                        <h3 class="stat-number"><?php echo $total_usuarios; ?></h3>
                         <p class="stat-label">Usuarios Registrados</p>
                     </div>
                 </div>
@@ -55,7 +67,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                         <i class="fa-solid fa-couch"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number">156</h3>
+                        <h3 class="stat-number"><?php echo $total_productos; ?></h3>
                         <p class="stat-label">Productos Activos</p>
                     </div>
                 </div>
@@ -65,7 +77,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                         <i class="fa-solid fa-shopping-cart"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number">89</h3>
+                        <h3 class="stat-number"></h3>
                         <p class="stat-label">Ventas del Mes</p>
                     </div>
                 </div>
@@ -106,51 +118,6 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                     <h3 class="action-title">Mensajes</h3>
                     <p class="action-description">Revisa los mensajes de contacto de clientes</p>
                     <a href="mensajes.php" class="action-btn">Ver Mensajes</a>
-                </div>
-            </div>
-
-            <div class="admin-recent-section">
-                <h2 class="section-title">Actividad Reciente</h2>
-                <div class="recent-activity">
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fa-solid fa-plus"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-text">Nuevo producto añadido: "Silla Ergonómica"</p>
-                            <span class="activity-time">Hace 2 horas</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fa-solid fa-user-plus"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-text">Nuevo usuario registrado: "María González"</p>
-                            <span class="activity-time">Hace 4 horas</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fa-solid fa-shopping-cart"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-text">Nueva venta realizada: $890.000</p>
-                            <span class="activity-time">Hace 6 horas</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-text">Nuevo mensaje de contacto recibido</p>
-                            <span class="activity-time">Hace 8 horas</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

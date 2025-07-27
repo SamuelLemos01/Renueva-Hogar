@@ -10,17 +10,19 @@ if ($_POST) {
     $accion = $_POST['accion'];
     
     if ($accion == 'crear') {
+        $tipo_documento = $_POST['tipo_documento'];
         $nombre = $_POST['nombre_completo'];
         $telefono = $_POST['telefono'];
         $direccion = $_POST['direccion'];
         $correo = $_POST['correo'];
         $contrasena = $_POST['contrasena'];
         
-        mysqli_query($conexion, "INSERT INTO usuarios (nombre_completo, telefono, direccion, correo, contrasena) VALUES ('$nombre', '$telefono', '$direccion', '$correo', '$contrasena')");
+        mysqli_query($conexion, "INSERT INTO usuarios (tipo_documento, nombre_completo, telefono, direccion, correo, contrasena) VALUES ('$tipo_documento', '$nombre', '$telefono', '$direccion', '$correo', '$contrasena')");
     }
     
     if ($accion == 'editar') {
         $id = $_POST['id'];
+        $tipo_documento = $_POST['tipo_documento'];
         $nombre = $_POST['nombre_completo'];
         $telefono = $_POST['telefono'];
         $direccion = $_POST['direccion'];
@@ -87,6 +89,7 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Tipo de Documento</th>
                         <th>Nombre</th>
                         <th>Teléfono</th>
                         <th>Dirección</th>
@@ -98,6 +101,7 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
                     <?php while ($u = mysqli_fetch_assoc($usuarios)): ?>
                         <tr>
                             <td><?php echo $u['id']; ?></td>
+                            <td><?php echo $u['tipo_documento']; ?></td>
                             <td><?php echo $u['nombre_completo']; ?></td>
                             <td><?php echo $u['telefono']; ?></td>
                             <td><?php echo $u['direccion']; ?></td>
@@ -118,6 +122,7 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
                     <table class="tabla tabla-consulta">
                         <thead>
                             <tr>
+                                <th>Tipo de Documento</th>
                                 <th>Nombre</th>
                                 <th>Teléfono</th>
                                 <th>Dirección</th>
@@ -127,6 +132,7 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
                         </thead>
                         <tbody>
                             <tr>
+                                <td><?php echo htmlspecialchars($usuario_encontrado['tipo_documento']); ?></td>
                                 <td><?php echo htmlspecialchars($usuario_encontrado['nombre_completo']); ?></td>
                                 <td><?php echo htmlspecialchars($usuario_encontrado['telefono']); ?></td>
                                 <td><?php echo htmlspecialchars($usuario_encontrado['direccion']); ?></td>
@@ -151,7 +157,11 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
             <form method="POST">
                 <input type="hidden" name="accion" id="accion" value="crear">
                 <input type="hidden" name="id" id="usuario_id">
-
+                <select name="tipo_documento" id="tipo_documento" required>
+                    <option value="">Seleccione tipo de documento</option>
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                </select>
                 <input type="text" name="nombre_completo" id="nombre_completo" placeholder="Nombre completo" required>
                 <input type="text" name="telefono" id="telefono" placeholder="Teléfono" required>
                 <input type="text" name="direccion" id="direccion" placeholder="Dirección" required>
@@ -194,11 +204,12 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
             document.querySelector('form').reset();
         }
 
-        function editar(id, nombre, telefono, direccion, correo, contrasena) {
+        function editar(id, tipo_documento, nombre, telefono, direccion, correo, contrasena) {
             document.getElementById('modal').style.display = 'block';
             document.getElementById('modalTitulo').textContent = 'Editar Usuario';
             document.getElementById('accion').value = 'editar';
             document.getElementById('usuario_id').value = id;
+            document.getElementById('tipo_documento').value = tipo_documento;
             document.getElementById('nombre').value = nombre;
             document.getElementById('telefono').value = telefono;
             document.getElementById('direccion').value = direccion;
