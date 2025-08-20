@@ -90,6 +90,7 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
                     <tr>
                         <th>ID</th>
                         <th>Tipo de Documento</th>
+                        <th>Numero de Documento</th>
                         <th>Nombre</th>
                         <th>Teléfono</th>
                         <th>Dirección</th>
@@ -102,6 +103,7 @@ $usuarios = mysqli_query($conexion, "SELECT * FROM usuarios");
                         <tr>
                             <td><?php echo $u['id']; ?></td>
                             <td><?php echo $u['tipo_documento']; ?></td>
+                            <td><?php echo $u['documento']; ?></td>
                             <td><?php echo $u['nombre_completo']; ?></td>
                             <td><?php echo $u['telefono']; ?></td>
                             <td><?php echo $u['direccion']; ?></td>

@@ -62,6 +62,9 @@
                 <div class="switch-form">
                     <span>¿No tienes una cuenta? <a href="register.php">Regístrate</a></span>
                 </div>
+                <div class="switch-form">
+                    <span>¿Eres un admin? Inicia Sesión <a href="../administrador/login/login_admin.php">aquí</a></span>
+                </div>
             </form>
         </div>
     </main>
