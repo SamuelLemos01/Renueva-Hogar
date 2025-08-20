@@ -53,10 +53,6 @@ a:hover{
     height: 500px;
 }
 
-.register-wrapper {
-    height: 650px;
-}
-
 .form-header{
     position: absolute;
     top: 0;
@@ -91,14 +87,15 @@ a:hover{
 .titles{
     position: relative;
 }
-.title-login, .title-register{
+.title-login{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     color: var(--white-color);
-    font-size: 24px;
     transition: var(--transition-3s);
+	text-align: center;
+	font-size: 1.9rem;
 }
 
 .login-form, .register-form{
@@ -143,6 +140,9 @@ a:hover{
     background-color: var(--white-color);
     color: var(--primary-color);
     padding: 0 10px;
+}
+.input-field:valid ~ .label{
+    color: var(--secondary-color);
 }
 .icon{
     position: absolute;

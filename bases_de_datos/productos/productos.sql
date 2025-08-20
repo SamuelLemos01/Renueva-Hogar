@@ -6,6 +6,9 @@
 -- Tiempo de generación: 20-08-2025 a las 01:49:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
+-- Tiempo de generación: 29-07-2025 a las 04:37:03
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,6 +82,7 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `imagen`) VALUES
 (40, 'Tocador Alcala', 'Tocador', 930000.00, 'tocador1.jpeg'),
 (41, 'Tocador Tarrasa', 'Tocador', 670000.00, 'tocador4.jpeg'),
 (42, 'Tocador Sabadell', 'Tocador', 750000.00, 'tocador7.jpeg');
+(4, 'comedor', 'Comedor', 25000.00, 'cabezon1.jpeg');
 
 --
 -- Índices para tablas volcadas
@@ -99,6 +103,7 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `productos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
