@@ -25,7 +25,7 @@
 
 					<a href="login.php"><i class="fa-solid fa-user"></i></a>				
 					<i class="fa-solid fa-basket-shopping"></i>
-					<a href="../administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
+					<a href="login.php"><i class="fa-regular fa-user"></i></a>
 				</nav>
 			</div>
 		</header>

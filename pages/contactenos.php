@@ -107,8 +107,6 @@
 			</section>
 		</main>
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
 		<footer class="pie-pagina">
 		<div class="contenedor contenedor-pie-pagina">
 			<div class="menu-pie-pagina">

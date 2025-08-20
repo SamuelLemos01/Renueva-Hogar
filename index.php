@@ -82,27 +82,27 @@
 				<div class="container-categories">
 					<div class="card-category category-moca">
 						<p>Camas</p>
-						<span><a href="pages/catalogo.php?categoria=camas#catalogo">Ver más</a></span>
+						<span><a href="pages/catalogo.php?categoria=cama#catalogo">Ver más</a></span>
 					</div>
 					<div class="card-category category-expreso">
 						<p>Sillas</p>
-						<span><a href="pages/catalogo.php?categoria=sillas#catalogo">Ver más</a></span>
+						<span><a href="pages/catalogo.php?categoria=silla#catalogo">Ver más</a></span>
 					</div>
 					<div class="card-category category-capuchino">
 						<p>Comedores</p>
-						<span><a href="pages/catalogo.php?categoria=comedores#catalogo">Ver más</a></span>
+						<span><a href="pages/catalogo.php?categoria=comedor#catalogo">Ver más</a></span>
 					</div>
 					<div class="card-category category-moca">
 						<p>Salas</p>
-						<span><a href="pages/catalogo.php?categoria=salas#catalogo">Ver más</a></span>
+						<span><a href="pages/catalogo.php?categoria=sala#catalogo">Ver más</a></span>
 					</div>
 					<div class="card-category category-expreso">
 						<p>Cajones</p>
-						<span><a href="pages/catalogo.php?categoria=cajones#catalogo">Ver más</a></span>
+						<span><a href="pages/catalogo.php?categoria=cajon#catalogo">Ver más</a></span>
 					</div>
 					<div class="card-category category-capuchino">
 						<p>Closets</p>
-						<span><a href="pages/catalogo.php?categoria=closets#catalogo">Ver más</a></span>
+						<span><a href="pages/catalogo.php?categoria=closet#catalogo">Ver más</a></span>
 					</div>
 					<div class="card-category category-moca">
 						<p>Tocadores</p>
