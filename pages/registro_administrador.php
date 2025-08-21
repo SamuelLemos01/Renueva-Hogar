@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renueva Hogar - Iniciar Sesión</title>
+    <title>Renueva Hogar - Registro</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/styles.css">
 <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
     <header>
 		<div class="contenedor-barra-navegacion">
@@ -25,50 +24,68 @@
 
 				<a href="login.php"><i class="fa-solid fa-user"></i></a>
 				<i class="fa-solid fa-basket-shopping"></i>
-				<a href="../administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
-				
-				
+				<a href="administrador.php"><i class="fa-regular fa-user"></i></a>
 			</nav>
 		</div>
 	</header>
 
+    <!-- Contenido principal -->
     <main class="contenido-principal-auth">
-        <div class="wrapper login-wrapper">
+        <div style="height:900px !important;"class="wrapper register-wrapper">
             <div class="form-header">
                 <div class="titles">
-                    <div class="title-login">Iniciar Sesión</div>
+                    <div class="title-login">Registro</div>
                 </div>
             </div>
-            <form action="login.php" method="POST" class="login-form" >
+            <form action="php\registro_usuario_be.php" method="POST" class="register-form" >
                 <div class="input-box">
-                    <input type="text" class="input-field" id="log-email" name="email" required>
-                    <label for="log-email" class="label">Correo Electrónico</label>
+                    <input type="text" class="input-field" id="reg-name" name="nombre_completo" >
+                    <label for="reg-name" class="label">Nombre Completo</label>
+                    <i class='bx bx-user icon'></i>
+                </div>
+                <div class="input-box">
+                    <input type="tel" class="input-field" id="reg-phone" name="telefono" >
+                    <label for="reg-phone" class="label">Teléfono</label>
+                    <i class='bx bx-phone icon'></i>
+                </div>
+                <div class="input-box">
+                    <input type="tel" class="input-field" id="fa-solid fa-envelope" name="tipo_documento" >
+                    <label for="reg-phone" class="label"> Tipo de Documento</label>
                     <i class='bx bx-envelope icon'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" class="input-field" id="log-pass" name="contrasena" required>
-                    <label for="log-pass" class="label">Contraseña</label>
-                    <i class='bx bx-lock-alt icon'></i>
-                </div>
-                <div class="form-cols">
-                    <div class="col-1"></div>
-                    <div class="col-2">
-                        <a href="#">¿Olvidaste tu contraseña?</a>
-                    </div>
+                    <input type="tel" class="input-field" id="" name="documento" required>
+                    <label for="reg-phone" class="label">Documento</label>
+                    <i class='bx bx-envelope icon'></i>
                 </div>
                 <div class="input-box">
-                    <button type="submit" class="btn-submit" id="SignInBtn">Iniciar Sesión <i class='bx bx-log-in'></i></button>
-                    
+                    <input type="text" class="input-field" id="reg-address" name="direccion" >
+                    <label for="reg-address" class="label">Dirección</label>
+                    <i class='bx bx-map icon'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" id="reg-email" name="correo_electronico" >
+                    <label for="reg-email" class="label">Correo Electrónico</label>
+                    <i class='bx bx-envelope icon'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" id="reg-pass" name="contrasena" >
+                    <label for="reg-pass" class="label">Contraseña</label>
+                    <i class='bx bx-lock-alt icon'></i>
+</div>
+                <div class="input-box">
+                    <button type="submit" class="btn-submit" name="registrar">Registrarse <i class='bx bx-user-plus'></i></button>
+                    <br><br>
+                    <button type="submit" class="btn-submit" name="consultar">Consultar <i class='bx bx-user-plus'></i></button>
+              
                 </div>
                 <div class="switch-form">
-                    <span>¿No tienes una cuenta? <a href="register.php">Regístrate</a></span>
-                </div>
-                <div class="switch-form">
-                    <span>¿Eres un admin? Inicia Sesión <a href="../administrador/login/login_admin.php">aquí</a></span>
+                    <span>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></span>
                 </div>
             </form>
         </div>
     </main>
+    <br><br><br><br><br><br><br>
 
     <!-- Footer -->
     <footer class="pie-pagina">

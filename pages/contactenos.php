@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="../assets/css/styles.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         </head>
+		
+<section class="">
+<img src="http://localhost/Renueva-Hogar/assets/images/Banner%20Horizontal%20RENUEVA%20HOGAR%20(2).jpg" alt="Banner Promocional" style="width: 100%; max-height: 1000px; object-fit: cover; display: block;">
+    </section>
 
 	<body>
 		<header>

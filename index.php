@@ -13,6 +13,10 @@
 	<link rel="stylesheet" href="assets/css/cuadros.css">
 </head>
 
+<section class="">
+<img src="assets\images\Banner Horizontal RENUEVA HOGAR (2).jpg" alt="Banner Promocional" style="width: 100%; max-height: 1000px; object-fit: cover; display: block;">
+    </section>
+
 <body>
 	<header>
 		<div class="contenedor-barra-navegacion">
