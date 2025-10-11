@@ -1,3 +1,8 @@
+<?php
+require_once '../../includes/header_helper.php';
+
+incluirHeader('Panel Administrativo', '../../', ['../../assets/css/login.css', 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'], [], true);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,24 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="contenedor-barra-navegacion">
-            <nav class="barra-navegacion contenedor">
-                <div class="contenedor-logo">
-                    <h1 class="logo"><a href="../../index.php">Renueva Hogar</a></h1>
-                </div>
-                <ul class="menu">
-                    <li><a href="../../pages/catalogo.php">Productos</a></li>
-                    <li><a href="../../pages/Quienes_somos.php">Quienes somos</a></li>
-                    <li><a href="../../pages/contactenos.php">Contáctenos</a></li>
-                </ul>
-                <a href="../../pages/login.php"><i class="fa-solid fa-user"></i></a>
-                <i class="fa-solid fa-basket-shopping"></i>
-                <a href="../admin/"><i class="fa-regular fa-user"></i></a>
-            </nav>
-        </div>
-    </header>
-
     <main class="contenido-principal-auth">
         <div class="wrapper login-wrapper">
             <div class="form-header">
