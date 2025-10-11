@@ -48,7 +48,10 @@ function obtenerRutaImagen($imagen, $categoria) {
 				</ul>
 
 					<a href="login.php"><i class="fa-solid fa-user"></i></a>				
-					<i class="fa-solid fa-basket-shopping"></i>
+					<div class="carrito-container">
+						<i class="fa-solid fa-basket-shopping" onclick="mostrarCarrito()" style="cursor: pointer;"></i>
+						<span class="carrito-contador">0</span>
+					</div>
 					<a href="login.php"><i class="fa-regular fa-user"></i></a>
 				</nav>
 			</div>
@@ -89,8 +92,12 @@ function obtenerRutaImagen($imagen, $categoria) {
 								<div class="categoria-producto"><?php echo htmlspecialchars($producto['categoria']); ?></div>
 								<h3 class="nombre-producto"><?php echo htmlspecialchars($producto['nombre']); ?></h3>
 								<div class="precio-producto"><?php echo formatearPrecio($producto['precio']); ?></div>
+								<?php if (!empty($producto['descripcion'])): ?>
+									<div class="product-description" style="margin-bottom: 10px;"><?php echo htmlspecialchars($producto['descripcion']); ?></div>
+								<?php endif; ?>
 								<div class="botones-producto">
-									<button class="btn-producto btn-carrito">Añadir <i class="fa-solid fa-cart-plus"></i></button>
+									<button class="btn-producto btn-carrito" data-id="<?php echo $producto['id']; ?>" data-nombre="<?php echo htmlspecialchars($producto['nombre']); ?>" data-precio="<?php echo $producto['precio']; ?>" data-imagen="<?php echo obtenerRutaImagen($producto['imagen'], 
+									$producto['categoria']); ?>">Añadir <i class="fa-solid fa-cart-plus"></i></button>
 								</div>
 							</div>
 						</div>
@@ -144,5 +151,6 @@ function obtenerRutaImagen($imagen, $categoria) {
 			</div>
 		</footer>
 		<script src="../assets/js/catalogo.js"></script>
+		<script src="../assets/js/carrito.js"></script>
 	</body>
 </html>

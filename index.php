@@ -1,3 +1,33 @@
+<?php
+// Conexión a la base de datos de productos
+$conexion_productos = mysqli_connect('localhost', 'root', '', 'productos');
+
+// Obtener productos destacados (hasta 8 para probar el slider)
+$query_destacados = "SELECT * FROM productos WHERE destacado = 1 LIMIT 8";
+$resultado_destacados = mysqli_query($conexion_productos, $query_destacados);
+$productos_destacados = mysqli_fetch_all($resultado_destacados, MYSQLI_ASSOC);
+
+// Obtener productos novedades (hasta 8 para probar el slider)
+$query_novedades = "SELECT * FROM productos WHERE novedad = 1 LIMIT 8";
+$resultado_novedades = mysqli_query($conexion_productos, $query_novedades);
+$productos_novedades = mysqli_fetch_all($resultado_novedades, MYSQLI_ASSOC);
+
+// Obtener productos más vendidos (hasta 8 para probar el slider)
+$query_vendidos = "SELECT * FROM productos WHERE mas_vendido = 1 LIMIT 8";
+$resultado_vendidos = mysqli_query($conexion_productos, $query_vendidos);
+$productos_vendidos = mysqli_fetch_all($resultado_vendidos, MYSQLI_ASSOC);
+
+// Función para formatear precio
+function formatearPrecio($precio) {
+    return '$' . number_format($precio, 0, ',', '.');
+}
+
+// Función para obtener la ruta de la imagen
+function obtenerRutaImagen($imagen, $categoria) {
+    $categoria_lower = strtolower($categoria);
+    return "assets/images/$categoria_lower/$imagen";
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,7 +61,10 @@
 				</ul>
 
 				<a href="pages/login.php"><i class="fa-solid fa-user"></i></a>
-				<i class="fa-solid fa-basket-shopping"></i>				
+				<div class="carrito-container">
+					<i class="fa-solid fa-basket-shopping" onclick="mostrarCarrito()" style="cursor: pointer;"></i>
+					<span class="carrito-contador">0</span>
+				</div>				
 			</nav>
 		</div>
 	</header>
@@ -126,61 +159,32 @@
 				<!-- Productos Destacados -->
 				<div class="products-section" id="destacados">
 					<h3 class="section-title">Productos Destacados</h3>
-					<div class="products-grid">
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/cama/cama1.jpeg" alt="Cama King Moderna">
-								<div class="product-overlay">
+					<div class="products-slider-container">
+						<div class="products-grid">
+						<?php if (empty($productos_destacados)): ?>
+							<div class="no-products">
+								<p>No hay productos destacados disponibles en este momento.</p>
+							</div>
+						<?php else: ?>
+							<?php foreach ($productos_destacados as $producto): ?>
+								<div class="product-card">
+									<div class="product-image">
+										<img src="<?php echo obtenerRutaImagen($producto['imagen'], $producto['categoria']); ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+										<div class="product-overlay">
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category"><?php echo htmlspecialchars($producto['categoria']); ?></span>
+										<h4 class="product-name"><?php echo htmlspecialchars($producto['nombre']); ?></h4>
+										<p class="product-price"><?php echo formatearPrecio($producto['precio']); ?></p>
+										<?php if (!empty($producto['descripcion'])): ?>
+											<div class="product-description" style="margin-bottom: 10px;"><?php echo htmlspecialchars($producto['descripcion']); ?></div>
+										<?php endif; ?>
+										<button class="add-to-cart" data-id="<?php echo $producto['id']; ?>" data-nombre="<?php echo htmlspecialchars($producto['nombre']); ?>" data-precio="<?php echo $producto['precio']; ?>" data-imagen="<?php echo obtenerRutaImagen($producto['imagen'], $producto['categoria']); ?>">Añadir al carrito</button>
+									</div>
 								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/comedor/comedor8.jpeg" alt="Comedor Familiar">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/silla/silla.jpeg" alt="Silla Ergonómica">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/closet/closet4.jpeg" alt="Closet Modular">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
+							<?php endforeach; ?>
+						<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -188,61 +192,32 @@
 				<!-- Productos Más Vendidos -->
 				<div class="products-section" id="vendidos">
 					<h3 class="section-title">Productos Más Vendidos</h3>
-					<div class="products-grid">
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/sala/sala13.jpeg" alt="Sala Moderna">
-								<div class="product-overlay">
+					<div class="products-slider-container">
+						<div class="products-grid">
+						<?php if (empty($productos_vendidos)): ?>
+							<div class="no-products">
+								<p>No hay productos más vendidos disponibles en este momento.</p>
+							</div>
+						<?php else: ?>
+							<?php foreach ($productos_vendidos as $producto): ?>
+								<div class="product-card">
+									<div class="product-image">
+										<img src="<?php echo obtenerRutaImagen($producto['imagen'], $producto['categoria']); ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+										<div class="product-overlay">
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category"><?php echo htmlspecialchars($producto['categoria']); ?></span>
+										<h4 class="product-name"><?php echo htmlspecialchars($producto['nombre']); ?></h4>
+										<p class="product-price"><?php echo formatearPrecio($producto['precio']); ?></p>
+										<?php if (!empty($producto['descripcion'])): ?>
+											<div class="product-description" style="margin-bottom: 10px;"><?php echo htmlspecialchars($producto['descripcion']); ?></div>
+										<?php endif; ?>
+										<button class="add-to-cart" data-id="<?php echo $producto['id']; ?>" data-nombre="<?php echo htmlspecialchars($producto['nombre']); ?>" data-precio="<?php echo $producto['precio']; ?>" data-imagen="<?php echo obtenerRutaImagen($producto['imagen'], $producto['categoria']); ?>">Añadir al carrito</button>
+									</div>
 								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/cajon/cajon6.jpeg" alt="Cajón Organizador">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/tocador/tocador.jpeg" alt="Tocador Elegante">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/silla/silla3.jpeg" alt="Silla de Oficina">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
+							<?php endforeach; ?>
+						<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -250,61 +225,32 @@
 				<!-- Productos Novedades -->
 				<div class="products-section" id="novedades">
 					<h3 class="section-title">Novedades</h3>
-					<div class="products-grid">
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/cajon/cajon9.jpeg" alt="Cajón Vintage">
-								<div class="product-overlay">
+					<div class="products-slider-container">
+						<div class="products-grid">
+						<?php if (empty($productos_novedades)): ?>
+							<div class="no-products">
+								<p>No hay productos nuevos disponibles en este momento.</p>
+							</div>
+						<?php else: ?>
+							<?php foreach ($productos_novedades as $producto): ?>
+								<div class="product-card">
+									<div class="product-image">
+										<img src="<?php echo obtenerRutaImagen($producto['imagen'], $producto['categoria']); ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+										<div class="product-overlay">
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category"><?php echo htmlspecialchars($producto['categoria']); ?></span>
+										<h4 class="product-name"><?php echo htmlspecialchars($producto['nombre']); ?></h4>
+										<p class="product-price"><?php echo formatearPrecio($producto['precio']); ?></p>
+										<?php if (!empty($producto['descripcion'])): ?>
+											<div class="product-description" style="margin-bottom: 10px;"><?php echo htmlspecialchars($producto['descripcion']); ?></div>
+										<?php endif; ?>
+										<button class="add-to-cart" data-id="<?php echo $producto['id']; ?>" data-nombre="<?php echo htmlspecialchars($producto['nombre']); ?>" data-precio="<?php echo $producto['precio']; ?>" data-imagen="<?php echo obtenerRutaImagen($producto['imagen'], $producto['categoria']); ?>">Añadir al carrito</button>
+									</div>
 								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/tocador/tocador6.jpeg" alt="Tocador Minimalista">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/comedor/comedor.jpeg" alt="Mesa de Comedor">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Sillas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
-						</div>
-
-						<div class="product-card">
-							<div class="product-image">
-								<img src="assets/images/sala/sala.jpeg" alt="Sofá Moderno">
-								<div class="product-overlay">
-								</div>
-							</div>
-							<div class="product-info">
-								<span class="product-category">Salas</span>
-								<h4 class="product-name">Silla rimax gamer</h4>
-								<p class="product-price">$1.250.000</p>
-								<button class="add-to-cart">Añadir al carrito</button>
-							</div>
+							<?php endforeach; ?>
+						<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -442,6 +388,8 @@
 		crossorigin="anonymous"></script>
 	
 	<script src="assets/js/scripts.js"></script>
+	<script src="assets/js/carrito.js"></script>
+	<script src="assets/js/slider.js"></script>
 
 </body>
 
