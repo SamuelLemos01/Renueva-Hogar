@@ -34,7 +34,6 @@ a:hover{
     min-height: calc(100vh - 200px);
     padding: 40px 0;
     background-color: var(--background-color);
-    margin-top: 50px;
 }
 
 .wrapper{

@@ -1,36 +1,47 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renueva Hogar - Iniciar Sesión</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-<link rel="stylesheet" href="../assets/css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+<?php
+require_once '../includes/header_helper.php';
 
-<body>
-    <header>
-		<div class="contenedor-barra-navegacion">
-			<nav class="barra-navegacion contenedor">
-				<div class="contenedor-logo">
-					<h1 class="logo"><a href="index.php">Renueva Hogar</a></h1>
-				</div>
-				<ul class="menu">
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
-				</ul>
+if ($_POST && isset($_POST['email']) && isset($_POST['contrasena'])) {
+    $email = $_POST['email'];
+    $contrasena = $_POST['contrasena'];
+    
+    // Conexión a la base de datos
+    $conexion = mysqli_connect('localhost', 'root', '', 'login_register_db');
+    
+    if ($conexion) {
+        // Buscar usuario por correo
+        $query = "SELECT id, correo, contrasena, nombre_completo FROM usuarios WHERE correo = ?";
+        $stmt = mysqli_prepare($conexion, $query);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
+        
+        if ($usuario = mysqli_fetch_assoc($resultado)) {
+            // Verificar contraseña
+            if ($contrasena === $usuario['contrasena']) {
+                // Iniciar sesión
+                session_start();
+                $_SESSION['usuario_id'] = $usuario['id'];
+                $_SESSION['usuario_email'] = $usuario['correo'];
+                $_SESSION['usuario_nombre'] = $usuario['nombre_completo'];
+                
+                // Redirigir al index
+                header("Location: ../index.php");
+                exit();
+            } else {
+                $error_login = "Contraseña incorrecta";
+            }
+        } else {
+            $error_login = "Usuario no encontrado";
+        }
+        mysqli_close($conexion);
+    } else {
+        $error_login = "Error de conexión a la base de datos";
+    }
+}
 
-				<a href="login.php"><i class="fa-solid fa-user"></i></a>
-				<i class="fa-solid fa-basket-shopping"></i>
-				<a href="../administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
-				
-				
-			</nav>
-		</div>
-	</header>
+incluirHeader('Iniciar Sesión', '../', ['../assets/css/login.css', 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'], [], true);
+?>
 
     <main class="contenido-principal-auth">
         <div class="wrapper login-wrapper">
@@ -40,6 +51,12 @@
                 </div>
             </div>
             <form action="login.php" method="POST" class="login-form" >
+                <?php if (isset($error_login)): ?>
+                    <div class="error-message" style="background-color: #ffebee; color: #c62828; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center;">
+                        <?php echo htmlspecialchars($error_login); ?>
+                    </div>
+                <?php endif; ?>
+                
                 <div class="input-box">
                     <input type="text" class="input-field" id="log-email" name="email" required>
                     <label for="log-email" class="label">Correo Electrónico</label>
@@ -70,50 +87,4 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="pie-pagina">
-        <div class="contenedor contenedor-pie-pagina">
-            <div class="menu-pie-pagina">
-                <div class="informacion-contacto">
-                    <p class="titulo-pie-pagina">Información de Contacto</p>
-                    <ul>
-                        <li><i class="fa-solid fa-location-dot"></i> Calle 15 #8-45, Neiva, Huila</li>
-                        <li><i class="fa-solid fa-phone"></i> (608) 865-4321</li>
-                        <li><i class="fa-solid fa-envelope"></i> info@renuevahogarmuebles.com</li>
-                    </ul>
-                    <div class="iconos-sociales">
-                        <span class="facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </span>
-                        <span class="instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </span>
-                        <span class="twitter">
-                            <i class="fa-brands fa-twitter"></i>
-                        </span>
-                        <span class="youtube">
-                            <i class="fa-brands fa-youtube"></i>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="informacion">
-                    <p class="titulo-pie-pagina">Enlaces Rápidos</p>
-                    <ul>
-                    <li><a href="../index.php">Inicio</a></li>
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="derechos-autor">
-            <p>
-                &copy; 2025 Renueva Hogar - Todos los derechos reservados
-            </p>
-        </div>
-    </footer>
-</body>
-</html>
+<?php incluirFooter('../'); ?>

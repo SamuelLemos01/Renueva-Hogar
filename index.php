@@ -27,47 +27,11 @@ function obtenerRutaImagen($imagen, $categoria) {
     $categoria_lower = strtolower($categoria);
     return "assets/images/$categoria_lower/$imagen";
 }
+
+// Incluir header helper
+require_once 'includes/header_helper.php';
+incluirHeader('Inicio', '', ['assets/css/index.css'], ['assets/js/scripts.js', 'assets/js/carrito.js', 'assets/js/slider.js']);
 ?>
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta
-		name="viewport"
-		content="width=device-width, initial-scale=1.0" />
-	<title>Renueva Hogar</title>
-	<link rel="stylesheet" href="assets/css/styles.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" href="assets/css/cuadros.css">
-</head>
-
-<section class="">
-<img src="assets\images\Banner Horizontal RENUEVA HOGAR (2).jpg" alt="Banner Promocional" style="width: 100%; max-height: 1000px; object-fit: cover; display: block;">
-    </section>
-
-<body>
-	<header>
-		<div class="contenedor-barra-navegacion">
-			<nav class="barra-navegacion contenedor">
-				<div class="contenedor-logo">
-					<h1 class="logo"><a href="index.php">Renueva Hogar</a></h1>
-				</div>
-				<ul class="menu">
-					<li><a href="pages/catalogo.php">Productos</a></li>
-					<li><a href="pages/Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="pages/contactenos.php">Contáctenos</a></li>
-				</ul>
-
-				<a href="pages/login.php"><i class="fa-solid fa-user"></i></a>
-				<div class="carrito-container">
-					<i class="fa-solid fa-basket-shopping" onclick="mostrarCarrito()" style="cursor: pointer;"></i>
-					<span class="carrito-contador">0</span>
-				</div>				
-			</nav>
-		</div>
-	</header>
 
 	<section class="banner">
 		<div class="contenido-banner">
@@ -346,51 +310,5 @@ function obtenerRutaImagen($imagen, $categoria) {
 		</main>
 	</main>
 
-	<footer class="pie-pagina">
-		<div class="contenedor contenedor-pie-pagina">
-			<div class="menu-pie-pagina">
-				<div class="informacion-contacto">
-					<p class="titulo-pie-pagina">Información de Contacto</p>
-					<ul>
-						<li><i class="fa-solid fa-location-dot"></i> Calle 15 #8-45, Neiva, Huila</li>
-						<li><i class="fa-solid fa-phone"></i> (608) 865-4321</li>
-						<li><i class="fa-solid fa-envelope"></i> info@renuevahogarmuebles.com</li>
-					</ul>
-					<div class="iconos-sociales">
-						<span class="facebook">
-							<i class="fa-brands fa-facebook-f"></i>
-						</span>
-					</div>
-				</div>
 
-				<div class="informacion">
-					<p class="titulo-pie-pagina">Enlaces Rápidos</p>
-					<ul>
-					<li><a href="index.php">Inicio</a></li>
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="derechos-autor">
-			<p>
-				&copy; 2025 Renueva Hogar - Todos los derechos reservados
-			</p>
-		</div>
-		</div>
-	</footer>
-
-	<script
-		src="https://kit.fontawesome.com/81581fb069.js"
-		crossorigin="anonymous"></script>
-	
-	<script src="assets/js/scripts.js"></script>
-	<script src="assets/js/carrito.js"></script>
-	<script src="assets/js/slider.js"></script>
-
-</body>
-
-</html>
+<?php incluirFooter(''); ?>

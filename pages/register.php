@@ -1,35 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renueva Hogar - Registro</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-<link rel="stylesheet" href="../assets/css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
-    <header>
-		<div class="contenedor-barra-navegacion">
-			<nav class="barra-navegacion contenedor">
-				<div class="contenedor-logo">
-					<h1 class="logo"><a href="index.php">Renueva Hogar</a></h1>
-				</div>
-				<ul class="menu">
-					<li><a href="pages/catalogo.php">Productos</a></li>
-					<li><a href="pages/Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="pages/contactenos.php">Contáctenos</a></li>
-				</ul>
-
-				<a href="pages/login.php"><i class="fa-solid fa-user"></i></a>
-				<i class="fa-solid fa-basket-shopping"></i>
-				<a href="administrador/administrador.php"><i class="fa-regular fa-user"></i></a>
-				
-				
-			</nav>
-		</div>
-	</header>
+<?php
+// Incluir header helper con validación de sesión
+require_once '../includes/header_helper.php';
+incluirHeader('Registro', '../', ['../assets/css/login.css', 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'], [], true);
+?>
 
     <!-- Contenido principal -->
     <main class="contenido-principal-auth">
@@ -52,7 +25,7 @@
                 </div>
                 <div class="input-box">
                     <select class="input-field" name="tipo_documento" required>
-                        <option value="">Seleccione tipo de documento</option>
+                        <option value=""></option>
                         <option value="CC">Cédula de Ciudadanía</option>
                         <option value="CE">Cédula de Extranjería</option>
                         <option value="TI">Tarjeta de Identidad</option>
@@ -90,50 +63,4 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="pie-pagina">
-        <div class="contenedor contenedor-pie-pagina">
-            <div class="menu-pie-pagina">
-                <div class="informacion-contacto">
-                    <p class="titulo-pie-pagina">Información de Contacto</p>
-                    <ul>
-                        <li><i class="fa-solid fa-location-dot"></i> Calle 15 #8-45, Neiva, Huila</li>
-                        <li><i class="fa-solid fa-phone"></i> (608) 865-4321</li>
-                        <li><i class="fa-solid fa-envelope"></i> info@renuevahogarmuebles.com</li>
-                    </ul>
-                    <div class="iconos-sociales">
-                        <span class="facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </span>
-                        <span class="instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </span>
-                        <span class="twitter">
-                            <i class="fa-brands fa-twitter"></i>
-                        </span>
-                        <span class="youtube">
-                            <i class="fa-brands fa-youtube"></i>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="informacion">
-                    <p class="titulo-pie-pagina">Enlaces Rápidos</p>
-                    <ul>
-                    <li><a href="../index.php">Inicio</a></li>
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="derechos-autor">
-            <p>
-                &copy; 2025 Renueva Hogar - Todos los derechos reservados
-            </p>
-        </div>
-    </footer>
-</body>
-</html>
+<?php incluirFooter('../'); ?>

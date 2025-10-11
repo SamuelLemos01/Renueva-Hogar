@@ -10,6 +10,93 @@ class CarritoCompras {
         this.actualizarContador();
     }
 
+    // Verificar si el usuario está logueado
+    usuarioLogueado() {
+        // Verificar múltiples indicadores de que el usuario está logueado
+        const tieneIconoLogout = document.querySelector('.fa-sign-out-alt') !== null;
+        const localStorageLogin = localStorage.getItem('usuario_logueado') === 'true';
+        const tieneCarrito = document.querySelector('.carrito-container') !== null;
+        
+        console.log('Verificando login:', {
+            tieneIconoLogout,
+            localStorageLogin,
+            tieneCarrito
+        });
+        
+        return tieneIconoLogout || localStorageLogin;
+    }
+
+    // Mostrar mensaje para que el usuario inicie sesión
+    mostrarMensajeLogin() {
+        // Crear modal de mensaje
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        `;
+
+        const contenido = document.createElement('div');
+        contenido.style.cssText = `
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            max-width: 400px;
+            margin: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        `;
+
+        contenido.innerHTML = `
+            <div style="font-size: 3rem; margin-bottom: 1rem; color: #c7a17a;">
+                <i class="fa-solid fa-user-lock"></i>
+            </div>
+            <h3 style="margin-bottom: 1rem; color: #151515;">Inicia sesión para continuar</h3>
+            <p style="margin-bottom: 2rem; color: #666;">
+                Para agregar productos al carrito, necesitas iniciar sesión primero.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button onclick="window.location.href=getLoginUrl()" 
+                        style="background-color: #c7a17a; color: white; border: none; 
+                               padding: 0.8rem 2rem; border-radius: 0.5rem; cursor: pointer;">
+                    Iniciar Sesión
+                </button>
+                <button onclick="this.closest('.modal-login').remove()" 
+                        style="background-color: #f0f0f0; color: #666; border: none; 
+                               padding: 0.8rem 2rem; border-radius: 0.5rem; cursor: pointer;">
+                    Cancelar
+                </button>
+            </div>
+        `;
+
+        modal.className = 'modal-login';
+        modal.appendChild(contenido);
+        document.body.appendChild(modal);
+
+        // Cerrar modal al hacer clic fuera
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+
+        // Cerrar modal con ESC
+        const cerrarModal = (e) => {
+            if (e.key === 'Escape') {
+                modal.remove();
+                document.removeEventListener('keydown', cerrarModal);
+            }
+        };
+        document.addEventListener('keydown', cerrarModal);
+    }
+
     cargarEventListeners() {
         // Event listeners para botones de añadir al carrito
         document.addEventListener('click', (e) => {
@@ -39,6 +126,17 @@ class CarritoCompras {
     }
 
     agregarProducto(boton) {
+        console.log('Intentando agregar producto...');
+        
+        // Verificar si el usuario está logueado
+        if (!this.usuarioLogueado()) {
+            console.log('Usuario NO logueado - Mostrando mensaje de login');
+            this.mostrarMensajeLogin();
+            return;
+        }
+        
+        console.log('Usuario logueado - Continuando con agregar producto');
+
         const producto = {
             id: boton.dataset.id,
             nombre: boton.dataset.nombre,
@@ -160,4 +258,22 @@ function mostrarCarrito() {
     mensaje += `\nTotal: $${total.toLocaleString()}`;
     
     alert(mensaje);
+}
+
+// Función para obtener la URL correcta de login según la ubicación actual
+function getLoginUrl() {
+    const currentPath = window.location.pathname;
+    
+    // Si estamos en el directorio raíz 
+    if (currentPath === '/Renueva-Hogar/' || currentPath === '/Renueva-Hogar/index.php' || currentPath.endsWith('/')) {
+        return 'pages/login.php';
+    }
+    
+    // Si estamos en el directorio pages 
+    if (currentPath.includes('/pages/')) {
+        return 'login.php';
+    }
+    
+    
+    return 'pages/login.php';
 }
