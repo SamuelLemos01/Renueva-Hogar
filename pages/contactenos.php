@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Contáctenos - Renueva Hogar</title>
+<?php
+// Conexión a la base de datos de contacto
+$conexion_contacto = mysqli_connect('localhost', 'root', '', 'contactos');
 
-        <link rel="stylesheet" href="../assets/css/styles.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        </head>
-		
-<section class="">
-<img src="http://localhost/Renueva-Hogar/assets/images/Banner%20Horizontal%20RENUEVA%20HOGAR%20(2).jpg" alt="Banner Promocional" style="width: 100%; max-height: 1000px; object-fit: cover; display: block;">
-    </section>
+// Función para obtener la ruta de la imagen
+function obtenerRutaImagen($imagen, $categoria) {
+    $categoria_lower = strtolower($categoria);
+    return "../assets/images/$categoria_lower/$imagen";
+}
 
-	<body>
-		<header>
-			<div class="contenedor-barra-navegacion">
-				<nav class="barra-navegacion contenedor">
-					<div class="contenedor-logo">
-						<h1 class="logo"><a href="../index.php">Renueva Hogar</a></h1>
-					</div>
-					<ul class="menu">
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
-				</ul>
-
-					<a href="login.php"><i class="fa-solid fa-user"></i></a>				
-					<i class="fa-solid fa-basket-shopping"></i>
-				</nav>
-			</div>
-		</header>
+// Incluir header helper
+require_once '../includes/header_helper.php';
+incluirHeader('Contáctenos', '../', ['../assets/css/pages.css', '../assets/css/contactenos.css']);
+?>
 
 		<section class="banner-interno">
 			<div class="contenido-banner-interno">
@@ -62,103 +42,59 @@
 				</div>
 			</section>
 
-			<section class="contenedor">
-				<div style="max-width: 800px; margin: 20px auto; background: white; border: 1px solid #ddd; font-family: Arial, sans-serif;">
-					<div style="background-color: #f5f5f5; padding: 10px; border-bottom: 1px solid #ddd;">
-						<h2 style="margin: 0; text-align: center; font-size: 20px;">Formulario de Contacto</h2>
+			<section class="contenedor formulario-contacto-section">
+				<div class="formulario-contacto-container">
+					<div class="formulario-header">
+						<h2 class="formulario-titulo">Contáctanos</h2>
+						<p class="formulario-subtitulo">Estamos aquí para ayudarte. Envíanos tu consulta y te responderemos pronto.</p>
 					</div>
 					
-					<form action="https://formspree.io/f/xldbvakj" method="post" style="padding: 0;">
-						<table style="width: 100%; border-collapse: collapse;">
-							<tr style="border-bottom: 1px solid #eee;">
-								<td style="width: 35%; padding: 10px; background-color: #f9f9f9; font-weight: bold;">Nombre completo</td>
-								<td style="padding: 10px;">
-									<input type="text" name="nombres" style="width: 100%; padding: 8px; border: 1px solid #ddd; box-sizing: border-box;" placeholder="Ingrese su Nombre">
-								</td>
-							</tr>
-							
-							<tr style="border-bottom: 1px solid #eee;">
-								<td style="width: 35%; padding: 10px; background-color: #f9f9f9; font-weight: bold;">Email</td>
-								<td style="padding: 10px;">
-									<input type="email" name="correo" style="width: 100%; padding: 8px; border: 1px solid #ddd; box-sizing: border-box;" placeholder="Ingrese su Correo">
-								</td>
-							</tr>
-							
-							<tr style="border-bottom: 1px solid #eee;">
-								<td style="width: 35%; padding: 10px; background-color: #f9f9f9; font-weight: bold;">Apellidos</td>
-								<td style="padding: 10px;">
-									<input type="text" name="apellidos" style="width: 100%; padding: 8px; border: 1px solid #ddd; box-sizing: border-box;" placeholder="Ingrese su Apellido">
-								</td>
-							</tr>
-							
-							<tr style="border-bottom: 1px solid #eee;">
-								<td style="width: 35%; padding: 10px; background-color: #f9f9f9; font-weight: bold;">Asunto</td>
-								<td style="padding: 10px;">
-									<textarea name="message" style="width: 100%; padding: 8px; border: 1px solid #ddd; height: 100px; resize: vertical; box-sizing: border-box;" placeholder="Escriba su mensaje..."></textarea>
-								</td>
-							</tr>
-							
-							<tr>
-								<td colspan="2" style="text-align: center; padding: 15px;">
-									<button type="submit" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; margin-right: 10px;">ENVIAR</button>
-									<button type="reset" style="background-color: #f1f1f1; color: #333; border: none; padding: 10px 20px; cursor: pointer;">Limpiar</button>
-								</td>
-							</tr>
-						</table>
+					<form action="../php/contactenos.php" method="post" class="formulario-contacto">
+						<div class="formulario-grupo">
+							<label for="nombre_completo" class="formulario-label">
+							<i class="fa-solid fa-user-large"></i>
+								Nombre completo
+							</label>
+							<input type="text" name="nombre_completo" id="nombre_completo" class="formulario-input" placeholder="Ingrese su nombre completo" required>
+						</div>
+						
+						<div class="formulario-grupo">
+							<label for="email" class="formulario-label">
+								<i class="fa-solid fa-envelope"></i>
+								Correo electrónico
+							</label>
+							<input type="email" name="email" id="email" class="formulario-input" placeholder="Ingrese su correo electrónico" required>
+						</div>
+						
+						<div class="formulario-grupo">
+							<label for="telefono" class="formulario-label">
+								<i class="fa-solid fa-phone"></i>
+								Teléfono
+							</label>
+							<input type="tel" name="telefono" id="telefono" class="formulario-input" placeholder="Ingrese su número de teléfono" required>
+						</div>
+						
+						<div class="formulario-grupo">
+							<label for="mensaje" class="formulario-label">
+								<i class="fa-solid fa-comment"></i>
+								Mensaje
+							</label>
+							<textarea name="mensaje" id="mensaje" class="formulario-textarea" placeholder="Escriba su mensaje aquí..." required></textarea>
+						</div>
+						
+						<div class="formulario-botones">
+							<button type="submit" class="btn-enviar">
+								<i class="fa-solid fa-paper-plane"></i>
+								Enviar mensaje
+							</button>
+							<button type="reset" class="btn-limpiar">
+								<i class="fa-solid fa-eraser"></i>
+								Limpiar formulario
+							</button>
+						</div>
 					</form>
 				</div>
 			</section>
 		</main>
 
-		<footer class="pie-pagina">
-		<div class="contenedor contenedor-pie-pagina">
-			<div class="menu-pie-pagina">
-				<div class="informacion-contacto">
-					<p class="titulo-pie-pagina">Información de Contacto</p>
-					<ul>
-						<li><i class="fa-solid fa-location-dot"></i> Calle 15 #8-45, Neiva, Huila</li>
-						<li><i class="fa-solid fa-phone"></i> (608) 865-4321</li>
-						<li><i class="fa-solid fa-envelope"></i> info@renuevahogarmuebles.com</li>
-					</ul>
-					<div class="iconos-sociales">
-						<span class="facebook">
-							<i class="fa-brands fa-facebook-f"></i>
-						</span>
-						<span class="instagram">
-							<i class="fa-brands fa-instagram"></i>
-						</span>
-						<span class="twitter">
-							<i class="fa-brands fa-twitter"></i>
-						</span>
-						<span class="youtube">
-							<i class="fa-brands fa-youtube"></i>
-						</span>
-					</div>
-				</div>
-
-				<div class="informacion">
-					<p class="titulo-pie-pagina">Enlaces Rápidos</p>
-					<ul>
-					<li><a href="../index.php">Inicio</a></li>
-					<li><a href="catalogo.php">Productos</a></li>
-					<li><a href="Quienes_somos.php">Quienes somos</a></li>
-					<li><a href="contactenos.php">Contáctenos</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="derechos-autor">
-			<p>
-				&copy; 2025 Renueva Hogar - Todos los derechos reservados
-			</p>
-		</div>
-		</div>
-	</footer>
-
-	<script
-		src="https://kit.fontawesome.com/81581fb069.js"
-		crossorigin="anonymous"></script>
-</body>
-
-</html>
+<?php incluirFooter('../'); ?>

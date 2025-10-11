@@ -16,8 +16,12 @@ if ($_POST) {
         $categoria = $_POST['categoria'];
         $precio = $_POST['precio'];
         $imagen = $_POST['imagen'];
+        $descripcion = $_POST['descripcion'];
+        $destacado = isset($_POST['destacado']) ? 1 : 0;
+        $novedad = isset($_POST['novedad']) ? 1 : 0;
+        $mas_vendido = isset($_POST['mas_vendido']) ? 1 : 0;
         
-        mysqli_query($conexion, "INSERT INTO productos (nombre, categoria, precio, imagen) VALUES ('$nombre', '$categoria', '$precio', '$imagen')");
+        mysqli_query($conexion, "INSERT INTO productos (nombre, categoria, precio, imagen, descripcion, destacado, novedad, mas_vendido) VALUES ('$nombre', '$categoria', '$precio', '$imagen', '$descripcion', $destacado, $novedad, $mas_vendido)");
     }
     
     if ($accion == 'editar') {
@@ -26,8 +30,12 @@ if ($_POST) {
         $categoria = $_POST['categoria'];
         $precio = $_POST['precio'];
         $imagen = $_POST['imagen'];
+        $descripcion = $_POST['descripcion'];
+        $destacado = isset($_POST['destacado']) ? 1 : 0;
+        $novedad = isset($_POST['novedad']) ? 1 : 0;
+        $mas_vendido = isset($_POST['mas_vendido']) ? 1 : 0;
         
-        mysqli_query($conexion, "UPDATE productos SET nombre='$nombre', categoria='$categoria', precio='$precio', imagen='$imagen' WHERE id=$id");
+        mysqli_query($conexion, "UPDATE productos SET nombre='$nombre', categoria='$categoria', precio='$precio', imagen='$imagen', descripcion='$descripcion', destacado=$destacado, novedad=$novedad, mas_vendido=$mas_vendido WHERE id=$id");
     }
     
     if ($accion == 'eliminar') {
@@ -55,6 +63,93 @@ $productos = mysqli_query($conexion, "SELECT * FROM productos");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../admin/admin.css">
     <link rel="stylesheet" href="productos.css">
+    <style>
+    /* Estilos para checkboxes - inline para asegurar que se apliquen */
+    .checkboxes-container {
+        display: flex;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        cursor: pointer;
+        font-size: 1.4rem;
+        color: #151515;
+        font-weight: 500;
+        padding: 0.8rem 1.2rem;
+        border-radius: 0.8rem;
+        transition: all 0.3s ease;
+        background-color: #f8f9fa;
+        border: 2px solid transparent;
+    }
+
+    .checkbox-label:hover {
+        background-color: #e9ecef;
+        border-color: #c7a17a;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        appearance: none;
+        width: 2.2rem;
+        height: 2.2rem;
+        border: 2px solid #c7a17a;
+        border-radius: 0.5rem;
+        background-color: #fff;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .checkbox-label input[type="checkbox"]:checked {
+        background-color: #c7a17a;
+        border-color: #c7a17a;
+    }
+
+    .checkbox-label input[type="checkbox"]:checked::after {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .checkbox-label input[type="checkbox"]:hover {
+        border-color: #b08b68;
+        transform: scale(1.1);
+    }
+
+    .checkbox-label:has(input[type="checkbox"]:checked) {
+        background-color: rgba(199, 161, 122, 0.1);
+        border-color: #c7a17a;
+        color: #c7a17a;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 1.2rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 1rem;
+        font-size: 1.4rem;
+        font-family: 'Poppins', sans-serif;
+        resize: vertical;
+        min-height: 8rem;
+        transition: border-color 0.3s ease;
+    }
+
+    textarea:focus {
+        outline: none;
+        border-color: #c7a17a;
+    }
+    </style>
 </head>
 <body>
     <header class="admin-header">
@@ -103,7 +198,7 @@ $productos = mysqli_query($conexion, "SELECT * FROM productos");
                         <td><?php echo $p['categoria']; ?></td>
                         <td>$<?php echo number_format($p['precio'], 0, ',', '.'); ?></td>
                         <td>
-                            <button onclick="editar(<?php echo $p['id']; ?>, '<?php echo $p['nombre']; ?>', '<?php echo $p['categoria']; ?>', '<?php echo $p['precio']; ?>', '<?php echo $p['imagen']; ?>')" class="btn-editar">Editar</button>
+                            <button onclick="editar(<?php echo $p['id']; ?>, '<?php echo addslashes($p['nombre']); ?>', '<?php echo $p['categoria']; ?>', '<?php echo $p['precio']; ?>', '<?php echo addslashes($p['imagen']); ?>', '<?php echo addslashes($p['descripcion'] ?? ''); ?>', <?php echo $p['destacado'] ?? 0; ?>, <?php echo $p['novedad'] ?? 0; ?>, <?php echo $p['mas_vendido'] ?? 0; ?>)" class="btn-editar">Editar</button>
                             <button onclick="eliminar(<?php echo $p['id']; ?>)" class="btn-eliminar">Eliminar</button>
                         </td>
                     </tr>
@@ -165,6 +260,25 @@ $productos = mysqli_query($conexion, "SELECT * FROM productos");
                 </select>
                 <input type="number" name="precio" id="precio" placeholder="Precio" required>
                 <input type="text" name="imagen" id="imagen" placeholder="Nombre de la imagen (ej: sala1.jpg)" required>
+                <textarea name="descripcion" id="descripcion" placeholder="Descripción del producto" rows="3"></textarea>
+                
+                <div class="checkboxes-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="destacado" id="destacado" value="1">
+                        <span class="checkmark"></span>
+                        Producto Destacado
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="novedad" id="novedad" value="1">
+                        <span class="checkmark"></span>
+                        Novedad
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="mas_vendido" id="mas_vendido" value="1">
+                        <span class="checkmark"></span>
+                        Más Vendido
+                    </label>
+                </div>
                 
                 <div class="botones">
                     <button type="button" onclick="cerrarModal()" class="btn-cancelar">Cancelar</button>
@@ -203,7 +317,7 @@ $productos = mysqli_query($conexion, "SELECT * FROM productos");
             document.querySelector('form').reset();
         }
         
-        function editar(id, nombre, categoria, precio, imagen) {
+        function editar(id, nombre, categoria, precio, imagen, descripcion, destacado, novedad, mas_vendido) {
             document.getElementById('modal').style.display = 'block';
             document.getElementById('modalTitulo').textContent = 'Editar Producto';
             document.getElementById('accion').value = 'editar';
@@ -212,6 +326,10 @@ $productos = mysqli_query($conexion, "SELECT * FROM productos");
             document.getElementById('categoria').value = categoria;
             document.getElementById('precio').value = precio;
             document.getElementById('imagen').value = imagen;
+            document.getElementById('descripcion').value = descripcion || '';
+            document.getElementById('destacado').checked = destacado == 1;
+            document.getElementById('novedad').checked = novedad == 1;
+            document.getElementById('mas_vendido').checked = mas_vendido == 1;
         }
         
         function eliminar(id) {

@@ -1,0 +1,136 @@
+.formulario-contacto-section {
+    padding: 6rem 0;
+}
+
+.formulario-contacto-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.formulario-contacto-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.15);
+}
+
+.formulario-header {
+    background: linear-gradient(135deg, var(--color-primario), #b08b68);
+    padding: 3rem;
+    text-align: center;
+    color: #fff;
+}
+
+.formulario-titulo {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.formulario-subtitulo {
+    font-size: 1.6rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.formulario-contacto {
+    padding: 4rem;
+}
+
+.formulario-grupo {
+    margin-bottom: 3rem;
+}
+
+.formulario-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-oscuro);
+    margin-bottom: 1rem;
+}
+
+.formulario-label i {
+    color: var(--color-primario);
+    font-size: 1.8rem;
+    width: 2rem;
+}
+
+.formulario-input,
+.formulario-textarea {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.formulario-input:focus,
+.formulario-textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(199, 161, 122, 0.1);
+}
+
+.formulario-textarea {
+    min-height: 12rem;
+    resize: vertical;
+}
+
+.formulario-botones {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.btn-enviar,
+.btn-limpiar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
+    border: none;
+    border-radius: 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-enviar {
+    background-color: var(--color-primario);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(199, 161, 122, 0.3);
+}
+
+.btn-enviar:hover {
+    background-color: #b08b68;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(199, 161, 122, 0.4);
+}
+
+.btn-limpiar {
+    background-color: #f8f9fa;
+    color: var(--color-oscuro);
+    border: 2px solid #e0e0e0;
+}
+
+.btn-limpiar:hover {
+    background-color: #e9ecef;
+    border-color: #ccc;
+    transform: translateY(-2px);
+}
