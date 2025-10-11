@@ -81,7 +81,7 @@ $total_contactos = mysqli_fetch_assoc($resultado_contactos)['total'];
 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fa-solid fa-couch"></i>
+                        <i class="fa-solid fa-envelope"></i>
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?php echo $total_contactos; ?></h3>
