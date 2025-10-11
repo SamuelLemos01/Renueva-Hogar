@@ -93,9 +93,7 @@ function incluirHeader($titulo_pagina = '', $ruta_base = '../', $css_extra = [],
                             </a>
                             <div class="carrito-container">
                                 <i class="fa-solid fa-basket-shopping" onclick="mostrarCarrito()"></i>
-                                <?php if ($contador_carrito > 0): ?>
-                                    <span class="carrito-contador"><?php echo $contador_carrito; ?></span>
-                                <?php endif; ?>
+                                <span class="carrito-contador" style="display: none;">0</span>
                             </div>
                         <?php else: ?>
                             <a href="<?php echo $ruta_base; ?>pages/login.php" class="user-icon" title="Iniciar Sesión">
