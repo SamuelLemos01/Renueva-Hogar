@@ -18,6 +18,13 @@ $conexion_productos = mysqli_connect('localhost', 'root', '', 'productos');
 $query_productos = "SELECT COUNT(*) as total FROM productos";
 $resultado_productos = mysqli_query($conexion_productos, $query_productos);
 $total_productos = mysqli_fetch_assoc($resultado_productos)['total'];
+
+
+// Conexión a base de datos de contactos
+$conexion_contactos = mysqli_connect('localhost', 'root', '', 'contactos');
+$query_contactos = "SELECT COUNT(*) as total FROM contactos";
+$resultado_contactos = mysqli_query($conexion_contactos, $query_contactos);
+$total_contactos = mysqli_fetch_assoc($resultado_contactos)['total'];
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +33,7 @@ $total_productos = mysqli_fetch_assoc($resultado_productos)['total'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo - Renueva Hogar</title>
-    <link rel="stylesheet" href="../../assets/css/index.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="admin.css">
 </head>
@@ -69,6 +76,16 @@ $total_productos = mysqli_fetch_assoc($resultado_productos)['total'];
                     <div class="stat-content">
                         <h3 class="stat-number"><?php echo $total_productos; ?></h3>
                         <p class="stat-label">Productos Activos</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number"><?php echo $total_contactos; ?></h3>
+                        <p class="stat-label">Mensajes Activos</p>
                     </div>
                 </div>
 
@@ -117,7 +134,7 @@ $total_productos = mysqli_fetch_assoc($resultado_productos)['total'];
                     </div>
                     <h3 class="action-title">Mensajes</h3>
                     <p class="action-description">Revisa los mensajes de contacto de clientes</p>
-                    <a href="mensajes.php" class="action-btn">Ver Mensajes</a>
+                    <a href="../crud_contactos/contactos.php" class="action-btn">Ver Mensajes</a>
                 </div>
             </div>
         </div>
