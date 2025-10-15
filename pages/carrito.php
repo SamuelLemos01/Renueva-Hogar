@@ -81,6 +81,5 @@ incluirHeader('Carrito de Compras', '../', ['../assets/css/pages.css', '../asset
 
     <!-- Scripts -->
     <script src="../assets/js/carrito.js"></script>
-</body>
 
 <?php incluirFooter('../'); ?>

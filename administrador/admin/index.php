@@ -25,6 +25,16 @@ $conexion_contactos = mysqli_connect('localhost', 'root', '', 'contactos');
 $query_contactos = "SELECT COUNT(*) as total FROM contactos";
 $resultado_contactos = mysqli_query($conexion_contactos, $query_contactos);
 $total_contactos = mysqli_fetch_assoc($resultado_contactos)['total'];
+
+// Conexión a base de datos de solicitudes (ventas)
+$conexion_solicitudes = mysqli_connect('localhost', 'root', '', 'solicitudes_compras');
+if ($conexion_solicitudes) {
+    $query_solicitudes = "SELECT COUNT(*) as total FROM solicitudes";
+    $resultado_solicitudes = mysqli_query($conexion_solicitudes, $query_solicitudes);
+    $total_solicitudes = mysqli_fetch_assoc($resultado_solicitudes)['total'];
+} else {
+    $total_solicitudes = 0;
+}
 ?>
 
 <!DOCTYPE html>
@@ -94,8 +104,8 @@ $total_contactos = mysqli_fetch_assoc($resultado_contactos)['total'];
                         <i class="fa-solid fa-shopping-cart"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number"></h3>
-                        <p class="stat-label">Ventas del Mes</p>
+                        <h3 class="stat-number"><?php echo $total_solicitudes; ?></h3>
+                        <p class="stat-label">Solicitudes de Compra</p>
                     </div>
                 </div>
             </div>
@@ -123,9 +133,9 @@ $total_contactos = mysqli_fetch_assoc($resultado_contactos)['total'];
                     <div class="action-icon">
                         <i class="fa-solid fa-shopping-cart"></i>
                     </div>
-                    <h3 class="action-title">Ver Ventas</h3>
-                    <p class="action-description">Consulta el historial de ventas y pedidos</p>
-                    <a href="ventas.php" class="action-btn">Ver Ventas</a>
+                    <h3 class="action-title">Gestionar Solicitudes</h3>
+                    <p class="action-description">Administra las solicitudes de compra de los clientes</p>
+                    <a href="../crud_solicitudes/solicitudes.php" class="action-btn">Ver Solicitudes</a>
                 </div>
 
                 <div class="action-card">

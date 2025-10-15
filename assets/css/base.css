@@ -56,6 +56,7 @@ html {
 	padding: 0;
 	gap: 3rem;
 	align-items: center;
+	z-index: 10;
 }
 
 .contenedor-logo {
@@ -100,6 +101,8 @@ html {
 	gap: 1.5rem;
 	justify-content: flex-end;
 	flex-shrink: 0;
+	position: relative;
+	z-index: 100;
 }
 
 .user-icon,
@@ -129,10 +132,9 @@ html {
 	color: var(--color-oscuro);
 	cursor: pointer;
 	transition: all 0.3s ease;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: block;
 	line-height: 1;
+	text-align: center;
 }
 
 .user-icon:hover i,

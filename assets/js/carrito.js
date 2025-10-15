@@ -350,7 +350,15 @@ class CarritoCompras {
                     this.mostrarNotificacion('Tu carrito está vacío', 'error');
                     return;
                 }
-                this.mostrarNotificacion('Funcionalidad de checkout próximamente', 'info');
+                // Redirigir a la página de checkout
+                const currentPath = window.location.pathname;
+                if (currentPath === '/Renueva-Hogar/' || currentPath === '/Renueva-Hogar/index.php' || currentPath.endsWith('/')) {
+                    window.location.href = 'pages/checkout.php';
+                } else if (currentPath.includes('/pages/')) {
+                    window.location.href = 'checkout.php';
+                } else {
+                    window.location.href = 'pages/checkout.php';
+                }
             });
         }
         
