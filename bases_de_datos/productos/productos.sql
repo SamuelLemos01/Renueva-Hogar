@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2025 at 02:03 AM
+-- Generation Time: Oct 15, 2025 at 02:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `imagen`, `destacado`, `novedad`, `descripcion`, `mas_vendido`) VALUES
-(2, 'camita', 'Cama', 550000.00, 'cabezon1.jpeg', 1, 0, '', 0),
+(2, 'camita', 'Cama', 550000.00, 'cabezon1.jpeg', 1, 0, 'Es una camita muy comoda', 0),
 (5, 'Cajon Marbella', 'Cajon', 650000.00, 'cajon.jpeg', 1, 0, '', 0),
 (6, 'Cajon Andorra', 'Cajon', 600000.00, 'cajon1.jpeg', 0, 0, NULL, 0),
 (7, 'Cajon Sevilla', 'Cajon', 620000.00, 'cajon2.jpeg', 1, 0, '', 0),
